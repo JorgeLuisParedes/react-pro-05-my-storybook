@@ -11,6 +11,8 @@ interface Props {
 	color?: 'text-primary' | 'text-secondary' | 'text-tertiary';
 	/** Custom CSS color that overrides the predefined variant. */
 	fontColor?: string;
+	/** Custom CSS background color. Defaults to transparent. */
+	backgroundColor?: string;
 }
 
 export const MyLabel = ({
@@ -19,12 +21,14 @@ export const MyLabel = ({
 	AllCaps = false,
 	color,
 	fontColor,
+	backgroundColor = 'transparent',
 }: Props) => {
 	return (
 		<span
 			className={`${size} ${color} label`}
 			style={{
 				color: fontColor,
+				backgroundColor,
 			}}>
 			{AllCaps ? label.toUpperCase() : label}
 		</span>
