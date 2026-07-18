@@ -1,6 +1,6 @@
 import './MyLabel.css';
 
-interface Props {
+export interface Props {
 	/** Text displayed by the label. */
 	label: string;
 	/** Visual size of the label. */

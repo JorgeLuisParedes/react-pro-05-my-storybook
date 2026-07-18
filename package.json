@@ -1,11 +1,37 @@
 {
-	"name": "my-storybook",
-	"private": true,
-	"version": "0.0.0",
+	"name": "jlp-custom-components",
+	"private": false,
+	"version": "0.0.1-rc5",
 	"type": "module",
+	"main": "dist/index.js",
+	"typings": "dist/index.d.ts",
+	"keywords": [
+		"curso",
+		"react",
+		"dev",
+		"jorge luis paredes",
+		"no usar"
+	],
+	"license": "MIT",
+	"repository": {
+		"url": "https://github.com/JorgeLuisParedes/react-pro-05-my-storybook",
+		"type": "git"
+	},
+	"files": [
+		"dist/"
+	],
+	"release": {
+		"branches": [
+			"main"
+		]
+	},
+	"peerDependencies": {
+		"react": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0",
+		"react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
+	},
 	"scripts": {
 		"dev": "npm run storybook",
-		"build": "tsc -b && vite build",
+		"build": "npm run clean && tsc -b && npm run copyfiles",
 		"format": "prettier --write .",
 		"format:check": "prettier --check .",
 		"lint": "eslint .",
@@ -13,11 +39,10 @@
 		"preview": "vite preview",
 		"storybook": "storybook dev -p 6006",
 		"build-storybook": "storybook build",
-		"chromatic": "npx chromatic --storybook-build-dir=storybook-static"
-	},
-	"dependencies": {
-		"react": "^19.2.0",
-		"react-dom": "^19.2.0"
+		"chromatic": "npx chromatic --storybook-build-dir=storybook-static",
+		"clean": "rimraf dist/",
+		"copyfiles": "copyfiles -u 1 src/**/*.css dist/",
+		"push:npm": "np"
 	},
 	"devDependencies": {
 		"@chromatic-com/storybook": "^5.2.1",
@@ -33,6 +58,7 @@
 		"@vitest/browser-playwright": "^4.1.10",
 		"@vitest/coverage-v8": "^4.1.10",
 		"chromatic": "^18.0.1",
+		"copyfiles": "^2.4.1",
 		"eslint": "^9.39.1",
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-import": "^2.32.0",
@@ -41,8 +67,12 @@
 		"eslint-plugin-react-refresh": "^0.4.24",
 		"eslint-plugin-storybook": "^10.5.2",
 		"globals": "^16.5.0",
+		"np": "^12.0.0",
 		"playwright": "^1.61.1",
 		"prettier": "^3.9.5",
+		"react": "^19.2.0",
+		"react-dom": "^19.2.0",
+		"rimraf": "^6.1.3",
 		"storybook": "^10.5.2",
 		"typescript": "~5.9.3",
 		"typescript-eslint": "^8.46.4",
